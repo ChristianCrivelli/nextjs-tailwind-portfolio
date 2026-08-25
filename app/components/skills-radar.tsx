@@ -66,7 +66,7 @@ export function SkillsRadar() {
               key={i}
               points={points}
               fill="none"
-              stroke="#e5e5e5"
+              stroke="var(--border-soft)"
               strokeWidth={1}
             />
           ))}
@@ -81,7 +81,7 @@ export function SkillsRadar() {
                 y1={CENTER}
                 x2={p.x}
                 y2={p.y}
-                stroke="#e5e5e5"
+                stroke="var(--border-soft)"
                 strokeWidth={1}
               />
             );
@@ -90,9 +90,9 @@ export function SkillsRadar() {
           {/* data shape */}
           <polygon
             points={dataPoints}
-            fill="black"
-            fillOpacity={0.15}
-            stroke="black"
+            fill="var(--accent)"
+            fillOpacity={0.18}
+            stroke="var(--accent)"
             strokeWidth={2}
           />
 
@@ -107,7 +107,7 @@ export function SkillsRadar() {
                 fontSize={11}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fill="#525252"
+                fill="var(--ink-muted)"
               >
                 {s.name}
               </text>

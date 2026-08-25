@@ -26,7 +26,7 @@ export function getAvailabilityBadge(now: Date = new Date()): AvailabilityBadge 
     return {
       tier: 'now',
       label: 'Available now',
-      className: 'bg-green-600 text-white',
+      className: 'bg-green-600 text-white dark:bg-green-500 dark:text-neutral-950',
     };
   }
 
@@ -35,13 +35,14 @@ export function getAvailabilityBadge(now: Date = new Date()): AvailabilityBadge 
     return {
       tier: 'close',
       label: `Ready to work in ~${months} month${months === 1 ? '' : 's'}`,
-      className: 'bg-amber-100 text-amber-900 font-semibold ring-1 ring-amber-300',
+      className:
+        'bg-amber-100 text-amber-900 font-semibold ring-1 ring-amber-300 dark:bg-amber-950/50 dark:text-amber-300 dark:ring-amber-800',
     };
   }
 
   return {
     tier: 'far',
     label: 'Ready to work starting Summer 2027',
-    className: 'bg-green-100 text-green-800',
+    className: 'bg-green-100 text-green-800 dark:bg-emerald-950/40 dark:text-emerald-300',
   };
 }

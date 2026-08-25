@@ -22,7 +22,7 @@ export function JourneyMap() {
   return (
     <section>
       <h2 className="mb-4 text-xl font-medium">Places I&apos;ve studied, lived, and worked</h2>
-      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+      <p className="mb-4 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Five places that trace my life so far: childhood in Mindelo and Matosinhos, my first year
         of university in Lanaken, my degree in Maastricht, and an exchange semester in Istanbul.
         They&apos;re also the exact five cities behind my{' '}
@@ -33,7 +33,7 @@ export function JourneyMap() {
         that shaped me. I&apos;d love to keep adding more pins to this map as life adds more
         places.
       </p>
-      <div className="h-[420px] w-full overflow-hidden rounded-lg border">
+      <div className="h-[420px] w-full overflow-hidden rounded-lg border" style={{ borderColor: 'var(--border-soft)' }}>
         <MapContainer
           center={[46, 12]}
           zoom={4}

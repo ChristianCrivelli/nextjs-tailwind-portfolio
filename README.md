@@ -1,42 +1,60 @@
-# Portfolio Blog Starter
+# Christian Crivelli — Portfolio
 
-This is a porfolio site template complete with a blog. Includes:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+My personal CV / developer portfolio: a single-page site covering featured
+projects, work experience, education, leadership, skills, languages, and a
+map of places I've lived and studied — built on the
+[Vercel portfolio-blog-starter](https://github.com/vercel/examples/tree/main/solutions/blog)
+template and heavily customized from there.
 
-## Demo
+**Live site:** https://my-cv-portfolio-alpha.vercel.app
 
-https://portfolio-blog-starter.vercel.app
+## Features
 
-## How to Use
+- Hero section with an availability badge that's date-driven, not hand-edited
+- Featured projects grid, with individual project detail pages
+- GitHub contribution graph, pulled live for `ChristianCrivelli`
+- Work experience, leadership, and education timelines
+- Skills radar chart and a languages list
+- Interactive map (Leaflet) of places I've lived, studied, and worked
+- Light/dark theme, defaulting to light with a manual toggle (persisted
+  across visits)
+- SEO: sitemap, robots.txt, JSON-LD structured data, dynamic OG image
+- Vercel Analytics and Speed Insights
 
-You can choose from one of the following two methods to use this repository:
+## Stack
 
-### One-Click Deploy
+- [Next.js](https://nextjs.org/) (App Router) with Turbopack
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Geist](https://vercel.com/font) font
+- [Leaflet](https://leafletjs.com/) / [React Leaflet](https://react-leaflet.js.org/) for the journey map
+- Deployed on [Vercel](https://vercel.com/)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+## Running locally
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+This project uses [pnpm](https://pnpm.io/installation).
 
 ```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
-
-Then, run Next.js in development mode:
-
-```bash
+pnpm install
 pnpm dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+Then open [http://localhost:3000](http://localhost:3000).
+
+```bash
+pnpm build   # production build
+pnpm start   # serve the production build
+```
+
+## Project structure
+
+- `app/page.tsx` — homepage sections
+- `app/components/` — UI components (nav, footer, timelines, project cards, etc.)
+- `app/data/` — content: projects, experience, education, leadership, skills, languages, places
+- `app/projects/[slug]/` — individual project detail pages
+- `app/lib/` — small helpers (availability badge logic, last-updated date)
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

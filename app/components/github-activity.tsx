@@ -6,7 +6,8 @@ export function GithubActivity({ username }: { username: string }) {
         src={`https://ghchart.rshah.org/${username}`}
         alt={`${username}'s GitHub contribution graph`}
         loading="lazy"
-        className="w-full rounded border"
+        className="w-full rounded-lg border"
+        style={{ borderColor: 'var(--border-soft)', backgroundColor: 'var(--surface)' }}
       />
       <a
         href={`https://github.com/${username}`}

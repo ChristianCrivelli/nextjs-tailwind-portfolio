@@ -81,6 +81,16 @@ export default function RootLayout({
       )}
     >
       <head>
+        {/* Applies a saved dark-mode choice before first paint, so there's no
+            flash of the wrong theme. Site defaults to light — system
+            `prefers-color-scheme` is intentionally ignored (see issue #26);
+            only an explicit toggle (persisted below) switches to dark. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
