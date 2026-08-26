@@ -11,6 +11,9 @@ export function Navbar() {
         <Link href="/projects" className="underline">
           Projects
         </Link>
+        <Link href="/#contact" className="underline">
+          Get in Touch
+        </Link>
       </div>
       <ThemeToggle />
     </nav>

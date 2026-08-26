@@ -41,7 +41,7 @@ export default async function ProjectPage({
             rel="noopener noreferrer"
             className="underline"
           >
-            Repository<span className="sr-only"> (opens in a new tab)</span>
+            {project.repoLabel ?? 'Repository'}<span className="sr-only"> (opens in a new tab)</span>
           </a>
         )}
         {project.extraRepos?.map((repo) => (

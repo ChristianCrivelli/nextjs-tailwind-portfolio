@@ -10,6 +10,8 @@ export interface Project {
   description: string;     // longer text for the deep-dive page (markdown-friendly string)
   liveUrl?: string;
   repoUrl?: string;
+  repoLabel?: string;      // override the default "Code" link text — use when there's more
+                           // than one repo, so it's clear which is which (paired with extraRepos)
   extraRepos?: { label: string; url: string }[]; // additional related repos (e.g. a separate backend/data repo)
   image?: string;          // path in /public
   featured?: boolean;      // show on homepage
@@ -43,6 +45,7 @@ export const projects: Project[] = [
       'A Supabase-backed recommendation engine that computes cosine similarity across a feature matrix of albums, wrapped in a FastAPI backend and a lightweight static frontend styled like a library card catalog. A public beta is live, split across two repos: one handling data ingestion and the recommendation engine, the other serving the read-only public app.',
     liveUrl: 'https://album-recommendations-public.vercel.app/',
     repoUrl: 'https://github.com/ChristianCrivelli/Album-Recommendations-Public',
+    repoLabel: 'App Code',
     extraRepos: [
       { label: 'Data & Recommender Engine', url: 'https://github.com/ChristianCrivelli/Album-Recommendations' },
     ],
@@ -65,7 +68,7 @@ export const projects: Project[] = [
     status: 'in-progress',
     oneLiner: 'A lightweight API surfacing civic and governance data for research use.',
     description:
-      'A data pipeline and API built around civic and governance indicators for ~197 countries, refreshed weekly via automated pipeline, intended to make cross-country civic-space data more accessible for research. Code and access are not yet public — permissions are currently in progress.'
+      'A data pipeline and API built around civic and governance indicators for ~197 countries, refreshed weekly via automated pipeline, intended to make cross-country civic-space data more accessible for research. Code and access are not yet public — the underlying data-source permissions are currently in an approval stage.'
     // no repoUrl / liveUrl on purpose while access is pending
   },
   {
@@ -117,7 +120,7 @@ export const projects: Project[] = [
     slug: 'flashcards',
     title: 'Notion Flashcards',
     type: 'tool',
-    status: 'in-progress',
+    status: 'completed',
     oneLiner: 'Turns a Notion vocabulary database into a local flashcard study tool.',
     description:
       'A utility that pulls vocabulary entries from a Notion database, cleans and enriches them with definitions, and stores them in a local database for flashcard-style review.',
@@ -130,8 +133,8 @@ export const projects: Project[] = [
     status: 'live',
     oneLiner: 'This site — a Next.js portfolio centralizing my projects, skills, and background into one interactive showcase.',
     description:
-      'A responsive personal portfolio built with Next.js and Tailwind, moving away from a static resume toward an interactive, continuously updated showcase. Features live GitHub activity, a skills radar chart, education/experience timelines, dynamic OG images, and JSON-LD structured data for discoverability.',
-    liveUrl: 'https://my-cv-portfolio-alpha.vercel.app/',
+      'A responsive personal portfolio built with Next.js and Tailwind, moving away from a static resume toward an interactive, continuously updated showcase. Features live GitHub activity, education/experience timelines, dynamic OG images, and JSON-LD structured data for discoverability.',
+    liveUrl: 'https://christiancrivelli.xyz',
     repoUrl: 'https://github.com/ChristianCrivelli/my-cv-portfolio',
   },
 ];

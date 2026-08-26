@@ -53,7 +53,7 @@ export function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="underline"
           >
-            Code
+            {project.repoLabel ?? 'Code'}
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         )}

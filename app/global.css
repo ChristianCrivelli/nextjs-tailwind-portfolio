@@ -407,3 +407,45 @@ table {
     transition: none;
   }
 }
+
+/* Shared pill-button look (submit buttons, CTAs) — same visual language as
+   .theme-toggle without reusing that class name for unrelated buttons. */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-soft);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.btn-pill:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.btn-pill:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-pill:disabled {
+  cursor: default;
+}
+
+.form-field {
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+
+.form-field:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}

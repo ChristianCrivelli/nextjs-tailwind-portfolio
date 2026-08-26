@@ -7,6 +7,7 @@ import { ExperienceTimeline } from './components/experience-timeline';
 import { LeadershipTimeline } from './components/leadership-timeline';
 import { JourneyMap } from './components/journey-map-loader';
 import { Languages } from './components/languages';
+import { ContactForm } from './components/contact-form';
 import { getAvailabilityBadge } from './lib/availability';
 
 export default function Page() {
@@ -90,6 +91,26 @@ export default function Page() {
 
       {/* Journey Map */}
       <JourneyMap />
+
+      {/* Get in Touch */}
+      <section id="contact" className="scroll-mt-8">
+        <h2 className="mb-2 text-xl font-medium">Get in Touch</h2>
+        <p className="mb-4 text-sm" style={{ color: 'var(--ink-muted)' }}>
+          Have an opportunity, a question, or just want to say hi? Send a message and
+          I&apos;ll get back to you — or find me on{' '}
+          <a
+            href="https://www.linkedin.com/in/christian-crivelli-120391231/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            LinkedIn
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          .
+        </p>
+        <ContactForm />
+      </section>
     </div>
   );
 }
