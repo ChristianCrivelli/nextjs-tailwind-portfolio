@@ -169,7 +169,8 @@
   border: 1px solid var(--border-soft);
   border-radius: 20px;
   box-shadow: var(--card-shadow);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .project-card:hover,
@@ -200,15 +201,28 @@ html {
   }
 }
 
-/* Cross-fade the palette itself when the theme toggle flips, instead of a
-   hard cut between light/dark values. */
 body {
   background-color: var(--bg);
-  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Cross-fade the palette itself when the theme toggle flips. Applied
+   broadly (not just to body) so every card, badge, and border animates
+   together instead of a few spots fading while everything else around
+   them snaps instantly — see issue #30. Excludes `transform` so it
+   doesn't fight hover/press animations or Leaflet's own pan/zoom
+   transitions on the journey map. */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow, fill, stroke;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body {
+  *,
+  *::before,
+  *::after {
     transition: none;
   }
 }
@@ -230,7 +244,8 @@ body {
   padding: 6px 12px;
   font-size: 0.875rem;
   box-shadow: var(--card-shadow);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease,
+    background-color 0.2s ease, color 0.2s ease;
 }
 
 .language-chip:hover {
@@ -374,7 +389,8 @@ table {
   font-weight: 500;
   color: var(--ink-muted);
   background: var(--surface);
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .theme-toggle:hover {
