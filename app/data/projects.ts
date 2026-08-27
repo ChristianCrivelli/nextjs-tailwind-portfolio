@@ -135,6 +135,6 @@ export const projects: Project[] = [
     description:
       'A responsive personal portfolio built with Next.js and Tailwind, moving away from a static resume toward an interactive, continuously updated showcase. Features live GitHub activity, education/experience timelines, dynamic OG images, and JSON-LD structured data for discoverability.',
     liveUrl: 'https://christiancrivelli.xyz',
-    repoUrl: 'https://github.com/ChristianCrivelli/my-cv-portfolio',
+    repoUrl: 'https://github.com/ChristianCrivelli/nextjs-tailwind-portfolio',
   },
 ];
