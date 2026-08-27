@@ -381,7 +381,13 @@ table {
 .theme-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  /* Fixed width so swapping "Dark"/"Light" doesn't snap the button's size —
+     that instant resize is what made the fade read as clanky (see issue
+     #30 follow-up). Sized to fit the wider "☀️ Light" state with a little
+     headroom for font differences. */
+  width: 92px;
   border: 1px solid var(--border-soft);
   border-radius: 9999px;
   padding: 6px 12px;
@@ -402,9 +408,28 @@ table {
   transform: scale(0.96);
 }
 
+/* Icon and label fade in on their own each time the toggle flips (the
+   component remounts them via `key`), instead of instantly popping to the
+   new emoji/text — see theme-toggle.tsx. */
+@keyframes theme-toggle-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.theme-toggle-fade {
+  animation: theme-toggle-fade-in 0.2s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle {
     transition: none;
+  }
+  .theme-toggle-fade {
+    animation: none;
   }
 }
 

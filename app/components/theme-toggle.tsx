@@ -39,8 +39,16 @@ export function ThemeToggle() {
       aria-label={mounted ? `Switch to ${isDark ? 'light' : 'dark'} mode` : 'Toggle color theme'}
       className="theme-toggle"
     >
-      <span aria-hidden="true">{mounted && isDark ? '☀️' : '🌙'}</span>
-      <span>{mounted && isDark ? 'Light' : 'Dark'}</span>
+      {/* Keyed so React remounts the span on every flip, re-triggering the
+          fade-in animation instead of the icon/label just popping instantly
+          — see the width fix in global.css .theme-toggle for the other half
+          of this (issue #30 follow-up: toggle still read as clanky). */}
+      <span aria-hidden="true" key={mounted && isDark ? 'sun' : 'moon'} className="theme-toggle-fade">
+        {mounted && isDark ? '☀️' : '🌙'}
+      </span>
+      <span key={mounted && isDark ? 'light' : 'dark'} className="theme-toggle-fade">
+        {mounted && isDark ? 'Light' : 'Dark'}
+      </span>
     </button>
   );
 }
