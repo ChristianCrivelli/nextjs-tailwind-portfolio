@@ -18,23 +18,29 @@ const statusLabel: Record<Project['status'], string> = {
 export function ProjectCard({ project }: { project: Project }) {
   const status = statusVars[project.status];
   return (
-    <div className="project-card relative p-6">
+    <div className="project-card relative">
       <Link
         href={`/projects/${project.slug}`}
         className="absolute inset-0 rounded-[20px]"
         aria-label={project.title}
       />
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="font-bold" style={{ color: 'var(--ink)' }}>{project.title}</h3>
-        <span
-          className="flex-shrink-0 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold"
-          style={{ color: status.ink, backgroundColor: status.bg }}
-        >
-          {statusLabel[project.status]}
-        </span>
-      </div>
-      <p className="mt-2.5 text-sm leading-relaxed" style={{ color: 'var(--ink-muted)' }}>{project.oneLiner}</p>
-      <div className="relative z-10 mt-3 flex gap-3 text-sm">
+      {project.image && (
+        <div className="project-thumb">
+          <img src={project.image} alt="" loading="lazy" />
+        </div>
+      )}
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="font-bold" style={{ color: 'var(--ink)' }}>{project.title}</h3>
+          <span
+            className="flex-shrink-0 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold"
+            style={{ color: status.ink, backgroundColor: status.bg }}
+          >
+            {statusLabel[project.status]}
+          </span>
+        </div>
+        <p className="mt-2.5 text-sm leading-relaxed" style={{ color: 'var(--ink-muted)' }}>{project.oneLiner}</p>
+        <div className="relative z-10 mt-3 flex gap-3 text-sm">
         {project.liveUrl && (
           <a
             href={project.liveUrl}
@@ -57,18 +63,19 @@ export function ProjectCard({ project }: { project: Project }) {
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         )}
-        {project.extraRepos?.map((repo) => (
-          <a
-            key={repo.url}
-            href={repo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            {repo.label}
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        ))}
+          {project.extraRepos?.map((repo) => (
+            <a
+              key={repo.url}
+              href={repo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              {repo.label}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

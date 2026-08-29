@@ -21,6 +21,11 @@ export default async function ProjectPage({
 
   return (
     <article>
+      {project.image && (
+        <div className="project-thumb mb-6 rounded-2xl">
+          <img src={project.image} alt="" />
+        </div>
+      )}
       <h1 className="text-2xl font-semibold">{project.title}</h1>
       <p className="mt-2 text-neutral-600">{project.description}</p>
       <div className="mt-4 flex gap-4">

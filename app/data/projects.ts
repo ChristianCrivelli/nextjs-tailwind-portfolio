@@ -13,7 +13,8 @@ export interface Project {
   repoLabel?: string;      // override the default "Code" link text — use when there's more
                            // than one repo, so it's clear which is which (paired with extraRepos)
   extraRepos?: { label: string; url: string }[]; // additional related repos (e.g. a separate backend/data repo)
-  image?: string;          // path in /public
+  image?: string;          // path in /public for a real screenshot, or a /project-thumb
+                           // route URL for a generated branded fallback (no live demo)
   featured?: boolean;      // show on homepage
   // thesis-only fields
   abstract?: string;
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     abstract:
       'Investigates how logistics companies can cut delivery-fleet carbon emissions without missing service deadlines, using real GPS trip data and a physics-based driving simulation. Finds an eco-driving "sweet spot" that cuts emissions by up to 16.5% on congested urban routes while still meeting delivery-time commitments.',
     pdfPath: '/Christian%20Crivelli%20Thesis.pdf',
+    image: '/project-thumb?title=Finding%20the%20Balance%20Between%20Efficiency%20and%20Green&type=thesis',
     featured: true,
   },
   {
@@ -49,6 +51,7 @@ export const projects: Project[] = [
     extraRepos: [
       { label: 'Data & Recommender Engine', url: 'https://github.com/ChristianCrivelli/Album-Recommendations' },
     ],
+    image: '/thumbnails/album-recommender.png',
     featured: true,
   },
   {
@@ -60,6 +63,7 @@ export const projects: Project[] = [
     description:
       'A Python-based research project examining whether population health metrics (e.g. obesity trends) show a measurable relationship with equity market performance, correlating 45 years of S&P 500 total returns (1980–2024) against national obesity trends across six countries: Australia, India, Japan, Singapore, the UK, and the US.',
     repoUrl: 'https://github.com/ChristianCrivelli/stock_culture',
+    image: '/project-thumb?title=Stock%20%26%20Culture&type=research',
   },
   {
     slug: 'civicus-api',
@@ -68,7 +72,8 @@ export const projects: Project[] = [
     status: 'in-progress',
     oneLiner: 'A lightweight API surfacing civic and governance data for research use.',
     description:
-      'A data pipeline and API built around civic and governance indicators for ~197 countries, refreshed weekly via automated pipeline, intended to make cross-country civic-space data more accessible for research. Code and access are not yet public — the underlying data-source permissions are currently in an approval stage.'
+      'A data pipeline and API built around civic and governance indicators for ~197 countries, refreshed weekly via automated pipeline, intended to make cross-country civic-space data more accessible for research. Code and access are not yet public — the underlying data-source permissions are currently in an approval stage.',
+    image: '/project-thumb?title=Civic%20Data%20API&type=api',
     // no repoUrl / liveUrl on purpose while access is pending
   },
   {
@@ -81,6 +86,7 @@ export const projects: Project[] = [
     description:
       'A data science project evaluating how civil liberties interact with economic outcomes and development goals across countries, with a focus on the downstream effects of civic freedom on the Sustainable Development Goals (SDGs) and the Multidimensional Poverty Index (MPI). Core question: do countries with higher civic freedom scores see faster development and quality-of-life gains?',
     repoUrl: 'https://github.com/ChristianCrivelli/demographic_studies',
+    image: '/project-thumb?title=Civic%20Freedom%20%26%20Socioeconomic%20Development%20Nexus&type=research',
   },
   {
     slug: 'city-walkability',
@@ -91,6 +97,7 @@ export const projects: Project[] = [
     description:
       'A network-analysis project that models pedestrian nodes across a city to evaluate and compare walkability. Phase 1 (data pipeline) is complete across five study cities — Maastricht, Matosinhos, Sabancı University (Istanbul), Lanaken, and Mindelo — covering roughly 32,000 pedestrian nodes, 87,000 edges, and 5,150 km of mapped network, enriched with elevation and terrain-grade data.',
     repoUrl: 'https://github.com/ChristianCrivelli/city_walkability',
+    image: '/project-thumb?title=City%20Walkability&type=research',
   },
   {
     slug: '2vs3',
@@ -102,6 +109,7 @@ export const projects: Project[] = [
     description:
       'A mathematical optimization project inspired by the "Moreyball" analytics revolution, which frames shot selection as a multi-objective problem: maximizing expected value while accounting for variance. By treating the court as an asset portfolio, the model calculates the exact break-even frontier where a team cannot increase expected point return without increasing the risk of missing the shot — directly applying Pareto optimization to sports analytics. Trained on 218,701 logged shots from the 2023–24 NBA season.',
     repoUrl: 'https://github.com/ChristianCrivelli/2vs3',
+    image: '/project-thumb?title=2%20vs%203%3A%20NBA%20Shot%20Optimization&type=research',
     featured: true,
   },
   {
@@ -114,6 +122,7 @@ export const projects: Project[] = [
     description:
       'A two-tier predictive pipeline ("End of Aging Clocks") quantifying national healthcare and pension solvency risk for 2030–2050. It intersects macro demographic shifts — modeled via the UN Population Prospects dataset and the standard Dependency Ratio — with a micro-level bio-informatic aging model trained on NHANES data to predict each person\'s "morbidity-free window." The pipeline runs 10,000 Monte Carlo trials to produce budget solvency profiles, with an interactive dashboard showing how a 2-year increase in healthy lifespan offsets sovereign debt risk from an aging population.',
     repoUrl: 'https://github.com/ChristianCrivelli/aging_simulator',
+    image: '/project-thumb?title=Macro-to-Micro%20Longevity%20Forecasting&type=research',
     featured: true,
   },
   {
@@ -125,6 +134,7 @@ export const projects: Project[] = [
     description:
       'A utility that pulls vocabulary entries from a Notion database, cleans and enriches them with definitions, and stores them in a local database for flashcard-style review.',
     repoUrl: 'https://github.com/ChristianCrivelli/flashcards',
+    image: '/project-thumb?title=Notion%20Flashcards&type=tool',
   },
   {
     slug: 'portfolio-site',
@@ -136,5 +146,6 @@ export const projects: Project[] = [
       'A responsive personal portfolio built with Next.js and Tailwind, moving away from a static resume toward an interactive, continuously updated showcase. Features live GitHub activity, education/experience timelines, dynamic OG images, and JSON-LD structured data for discoverability.',
     liveUrl: 'https://christiancrivelli.xyz',
     repoUrl: 'https://github.com/ChristianCrivelli/nextjs-tailwind-portfolio',
+    image: '/thumbnails/portfolio-site.png',
   },
 ];
