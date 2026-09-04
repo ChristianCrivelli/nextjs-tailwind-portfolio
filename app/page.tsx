@@ -6,6 +6,7 @@ import { GithubActivity } from './components/github-activity';
 import { ExperienceTimeline } from './components/experience-timeline';
 import { LeadershipTimeline } from './components/leadership-timeline';
 import { JourneyMap } from './components/journey-map-loader';
+import { SkillsList } from './components/skills-list';
 import { Languages } from './components/languages';
 import { ContactForm } from './components/contact-form';
 import { getAvailabilityBadge } from './lib/availability';
@@ -85,6 +86,9 @@ export default function Page() {
 
       {/* Education */}
       <EducationTimeline />
+
+      {/* Skills */}
+      <SkillsList />
 
       {/* Languages */}
       <Languages />

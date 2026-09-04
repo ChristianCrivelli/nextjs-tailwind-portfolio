@@ -279,6 +279,34 @@ body {
   }
 }
 
+/* Skill pill — see app/components/skills-list.tsx. Same visual language as
+   .language-chip, kept separate since the two sections evolve independently. */
+.skill-chip {
+  border: 1px solid var(--border-soft);
+  border-radius: 9999px;
+  background: var(--surface);
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.skill-chip:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-chip {
+    transition: none;
+  }
+  .skill-chip:hover {
+    transform: none;
+  }
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 

@@ -18,9 +18,9 @@ export function getPersonStructuredData() {
       name: 'Maastricht University School of Business and Economics',
     },
     // Derived from data/skills.ts so this can't drift out of sync with the
-    // Skills section on the page — add a skill there (e.g. EEIO / statistical
-    // modeling, if that should be listed) to have it picked up here too.
-    knowsAbout: skills.map((s) => s.name),
+    // Skills section on the page — add a skill there to have it picked up
+    // here too.
+    knowsAbout: skills,
     description:
       'Business Analytics student building data-driven projects spanning sports analytics, civic data, demographic research, and recommendation systems.',
   };
