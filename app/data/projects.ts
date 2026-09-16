@@ -39,13 +39,13 @@ export const projects: Project[] = [
   },
   {
     slug: 'album-recommender',
-    title: 'Album Recommender',
+    title: 'Music Recommendation Webapp',
     type: 'webapp',
     status: 'in-progress', // beta live
     oneLiner: 'A music recommender that suggests albums based on audio feature similarity.',
     description:
       'A Supabase-backed recommendation engine that computes cosine similarity across a feature matrix of albums, wrapped in a FastAPI backend and a lightweight static frontend styled like a library card catalog. A public beta is live, split across two repos: one handling data ingestion and the recommendation engine, the other serving the read-only public app.',
-    liveUrl: 'https://album-recommendations-public.vercel.app/',
+    liveUrl: 'https://recommender.christiancrivelli.xyz',
     repoUrl: 'https://github.com/ChristianCrivelli/music-recommendation-webapp',
     repoLabel: 'App Code',
     extraRepos: [
@@ -56,7 +56,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'stock-culture',
-    title: 'Stock & Culture',
+    title: 'Fast Food & Gaming Stock Correlation Study',
     type: 'research',
     status: 'in-progress',
     oneLiner: 'An analysis of how public health and cultural indicators relate to stock performance — and a case study in catching a spurious correlation.',
@@ -91,8 +91,18 @@ export const projects: Project[] = [
     // is private
   },
   {
+    slug: 'knowledge-spillover',
+    title: 'CERN Knowledge Transfer Spillover Graph',
+    type: 'research',
+    status: 'in-progress',
+    oneLiner: 'Maps how CERN research diffuses outward through forward citations and disclosed knowledge-transfer deals.',
+    description:
+      'A citation-diffusion pipeline built for a CERN Knowledge Transfer audience. It fetches CERN KT highlights via the WordPress REST API and builds a directed forward-citation spillover graph via the OpenAlex API, tracking which fields and countries later cite CERN publications — combined with disclosed KT contracts/partners as a second spillover signal. Renders an interactive Pyvis network visualization end-to-end.',
+    repoUrl: 'https://github.com/ChristianCrivelli/knowledge_spillover',
+  },
+  {
     slug: 'city-walkability',
-    title: 'City Walkability',
+    title: 'Geospatial Walkability Analytics',
     type: 'research',
     status: 'in-progress',
     oneLiner: 'Analyzes pedestrian infrastructure networks to score urban walkability.',
@@ -103,7 +113,7 @@ export const projects: Project[] = [
   },
   {
     slug: '2vs3',
-    title: '2 vs 3: NBA Shot Optimization',
+    title: 'NBA Shot Efficiency Pareto Model',
     type: 'research',
     status: 'in-progress',
     oneLiner:
@@ -116,33 +126,20 @@ export const projects: Project[] = [
   },
   {
     slug: 'aging-simulator',
-    title: 'Macro-to-Micro Longevity Forecasting',
+    title: 'Silver Tsunami Simulator',
     type: 'research',
     status: 'in-progress',
     oneLiner:
-      'Models how delaying chronic illness reshapes national pension and healthcare solvency.',
+      'A Gompertz-Makeham mortality model feeding a national pension and healthcare fiscal-risk simulator.',
     description:
-      'A two-tier predictive pipeline ("End of Aging Clocks") quantifying national healthcare and pension solvency risk for 2030–2050. It intersects macro demographic shifts — modeled via the UN Population Prospects dataset and the standard Dependency Ratio — with a micro-level bio-informatic aging model trained on NHANES data to predict each person\'s "morbidity-free window." The pipeline runs 10,000 Monte Carlo trials to produce budget solvency profiles, with an interactive dashboard showing how a 2-year increase in healthy lifespan offsets sovereign debt risk from an aging population.',
+      'A demographic-aging and fiscal-risk simulator built around Gompertz-Makeham mortality curves feeding a national pension and healthcare cost model — chosen over a pure-fiscal or pure-biodemography angle for the hybrid view it gives. The current build walks through a single country (Japan) as a first pass, framed honestly as an illustrative case study rather than a validated cross-country result. A Tableau dashboard and a BRD, framed as a request from a pension-regulator/ministry-of-finance stakeholder, are in progress.',
     repoUrl: 'https://github.com/ChristianCrivelli/longevity-fiscal-risk-simulator',
     image: '/project-thumb?title=Macro-to-Micro%20Longevity%20Forecasting&type=research',
     featured: true,
   },
   {
-    slug: 'silver-tsunami-simulator',
-    title: 'The Silver Tsunami Simulator',
-    type: 'research',
-    status: 'in-progress',
-    oneLiner:
-      'Calibrates a mortality curve to a country\'s real life expectancy and reads off the pension/healthcare cost that trajectory implies.',
-    description:
-      'A demographic-aging simulator with a fiscal-risk lens: calibrates a Gompertz-Makeham mortality curve to a country\'s actual life expectancy, projects its population forward under a cohort-component model, and reads off the fiscal burden — pension plus healthcare cost, as % of GDP — that trajectory implies, under a baseline path and under policy or technology shocks (life extension, retirement-age reform, fertility decline). The goal is to unpack the usual single-number framing of population aging (the old-age dependency ratio) into its actual mechanics — a biological process (mortality improving), a demographic one (fewer births per generation), and how those two combine into a fiscal one (fewer workers per pensioner, at rising per-pensioner cost) — so the model can answer genuinely causal "what if" questions instead of just plotting history. A first walkthrough against Japan\'s current numbers (life expectancy 84.7, fertility rate 1.2) illustrates the mechanism: a life-extension shock with no policy response pushes projected pension + health cost from ~19% of GDP today toward ~30% by 2063 against an ~22% do-nothing baseline, while raising the retirement age to 70 brings that same 2063 figure back down to ~18%. Those are the model\'s first-run numbers for one country, not yet a validated cross-country result — extending the comparison broadly is the next step.',
-    image: '/project-thumb?title=The%20Silver%20Tsunami%20Simulator&type=research',
-    // no repoUrl on purpose — repo (civic-freedom-development-analysis,
-    // a holdover name from before this project moved in) is private
-  },
-  {
     slug: 'flashcards',
-    title: 'Notion Flashcards',
+    title: 'Notion Anki Flashcard Sync',
     type: 'tool',
     status: 'completed',
     oneLiner: 'Turns a Notion vocabulary database into a local flashcard study tool.',

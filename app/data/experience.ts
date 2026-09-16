@@ -9,35 +9,35 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    employer: 'Brasserie Monopole',
+    employer: 'The Social Hub',
     role: 'Waiter',
-    startDate: '2024-04',
-    endDate: '2025-01',
+    startDate: '2026-02',
     location: 'Maastricht, Netherlands',
     highlights: [
-      'Served guests at a busy restaurant in central Maastricht, handling high-volume service with pace and accuracy.',
-      'Maintained customer communication and reliability standards while balancing a full academic course load.',
+      'Provide food and drink service across a fast-paced hospitality venue, balancing multiple tables during peak hours without sacrificing accuracy or pace.',
+      'Coordinate with kitchen and bar staff to keep order timing consistent during high-volume shifts.',
     ],
   },
   {
-    employer: "Dunkin' Donuts",
+    employer: 'Dunkin\' Donuts',
     role: 'Barista',
     startDate: '2024-12',
     endDate: '2025-07',
     location: 'Maastricht, Netherlands',
     highlights: [
-      'Prepared and served drinks and food during high-traffic shifts, prioritizing speed and order accuracy.',
-      'Handled point-of-sale and customer-facing responsibilities independently.',
+      'Prepared coffee and specialty drinks to order during high-volume rush periods, maintaining consistency and speed under pressure.',
+      'Handled point-of-sale transactions and cash management accurately across busy shifts.',
     ],
   },
   {
-    employer: 'The Social Hub Maastricht',
+    employer: 'Brasserie Monopole',
     role: 'Waiter',
-    startDate: '2026-02',
+    startDate: '2024-04',
+    endDate: '2025-02',
     location: 'Maastricht, Netherlands',
     highlights: [
-      'Providing dining and event service while completing the Business Intelligence & Smart Services Master\'s.',
-      'Maintaining reliability and customer-facing service skills alongside a full-time academic schedule.',
+      'Delivered table service in a busy brasserie, coordinating with kitchen staff to keep order delivery on time during peak service.',
+      'Built rapport with regular guests, contributing to a consistent, positive dining experience.',
     ],
   },
 ];
