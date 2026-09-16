@@ -28,6 +28,15 @@ export default async function ProjectPage({
       )}
       <h1 className="text-2xl font-semibold">{project.title}</h1>
       <p className="mt-2 text-neutral-600">{project.description}</p>
+      {project.tags && project.tags.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="skill-chip">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="mt-4 flex gap-4">
         {project.liveUrl && (
           <a

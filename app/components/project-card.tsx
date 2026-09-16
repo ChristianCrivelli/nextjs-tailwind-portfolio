@@ -40,6 +40,15 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
         <p className="mt-2.5 text-sm leading-relaxed" style={{ color: 'var(--ink-muted)' }}>{project.oneLiner}</p>
+        {project.tags && project.tags.length > 0 && (
+          <div className="relative z-10 mt-3 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span key={tag} className="skill-chip">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="relative z-10 mt-3 flex gap-3 text-sm">
         {project.liveUrl && (
           <a

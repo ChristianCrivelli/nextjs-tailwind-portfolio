@@ -29,6 +29,15 @@ export function LeadershipTimeline() {
                 <li key={j}>{h}</li>
               ))}
             </ul>
+            {entry.tags && entry.tags.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {entry.tags.map((tag) => (
+                  <span key={tag} className="skill-chip">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
             {entry.url && (
               <a
                 href={entry.url}

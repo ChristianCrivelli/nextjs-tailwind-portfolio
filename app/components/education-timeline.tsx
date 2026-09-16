@@ -26,14 +26,22 @@ export function EducationTimeline() {
               </span>
             )}
             {entry.skills && entry.skills.length > 0 && (
-              <p className="mt-2 text-xs" style={{ color: 'var(--ink-faint)' }}>
-                Skills: {entry.skills.join(', ')}
-              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {entry.skills.map((s) => (
+                  <span key={s} className="skill-chip">
+                    {s}
+                  </span>
+                ))}
+              </div>
             )}
             {entry.relevantCoursework && entry.relevantCoursework.length > 0 && (
-              <p className="mt-1 text-xs" style={{ color: 'var(--ink-faint)' }}>
-                Relevant coursework: {entry.relevantCoursework.join(', ')}
-              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {entry.relevantCoursework.map((c) => (
+                  <span key={c} className="skill-chip">
+                    {c}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
         ))}

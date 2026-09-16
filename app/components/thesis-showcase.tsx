@@ -5,6 +5,15 @@ export function ThesisShowcase({ project }: { project: Project }) {
     <article>
       <h1 className="text-2xl font-semibold">{project.title}</h1>
       <p className="mt-3 text-lg text-neutral-700">{project.abstract}</p>
+      {project.tags && project.tags.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="skill-chip">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       {project.pdfPath && (
         <a
           href={project.pdfPath}

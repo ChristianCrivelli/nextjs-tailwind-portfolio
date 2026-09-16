@@ -5,6 +5,7 @@ export interface LeadershipEntry {
   endDate?: string;   // omit if current
   location?: string;
   highlights: string[];
+  tags?: string[];    // skill chips, drawn directly from the highlights above
   url?: string;
 }
 
@@ -20,5 +21,6 @@ export const leadership: LeadershipEntry[] = [
       "Handling the organization's IT needs.",
       "Leading data science and analytics work supporting the sanctuary's operations.",
     ],
+    tags: ['Nonprofit Governance / Leadership', 'IT Administration', 'Data Science & Analytics (Volunteer)'],
   },
 ];
