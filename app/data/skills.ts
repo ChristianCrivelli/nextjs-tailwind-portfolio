@@ -21,8 +21,9 @@ export const skillCategories: SkillCategory[] = [
     category: 'Data Analysis & Statistics',
     icon: 'chart',
     // Statistical Data Analysis: Bachelor's coursework. The rest: methods
-    // actually applied in Stock & Culture (Pearson/Spearman correlation),
-    // 2 vs 3 and the thesis (Pareto/multi-objective optimization), the
+    // actually applied in the Fast Food & Gaming Stock Correlation Study
+    // (Pearson/Spearman correlation), the NBA Shot Efficiency Pareto Model
+    // and the thesis (Pareto/multi-objective optimization), the
     // Freedom-Prosperity Nexus (panel regression), and the longevity
     // simulator (Monte Carlo simulation).
     skills: [
@@ -37,24 +38,25 @@ export const skillCategories: SkillCategory[] = [
     category: 'Data Engineering & Pipelines',
     icon: 'pipeline',
     // Data Engineering and Data Governance: Bachelor's coursework. The rest:
-    // civicus-api's monthly scheduled scrape/refresh, and Notion Flashcards'
-    // GitHub Actions gather step.
+    // civicus-api's monthly scheduled scrape/refresh, and Notion Anki
+    // Flashcard Sync's GitHub Actions gather step.
     skills: ['ETL & Data Governance', 'Scheduled Pipelines (GitHub Actions)', 'REST API Design'],
   },
   {
     category: 'Web Development',
     icon: 'web',
-    // This site (Next.js/TypeScript/Tailwind) and the Album Recommender
-    // (FastAPI backend, Supabase — Postgres under the hood — for storage).
+    // This site (Next.js/TypeScript/Tailwind) and the Music Recommendation
+    // Webapp (FastAPI backend, Supabase — Postgres under the hood — for storage).
     skills: ['Next.js / React', 'FastAPI', 'Supabase / PostgreSQL', 'Tailwind CSS'],
   },
   {
     category: 'Geospatial & Network Analysis',
     icon: 'map',
-    // City Walkability: OSMnx/NetworkX graph extraction, GeoPandas spatial
-    // dataframes, elevation/terrain-grade enrichment. Citation & Diffusion
-    // Network Analysis: the CERN Knowledge Transfer citation-spillover
-    // project (forward-citation diffusion graphs built from OpenAlex data).
+    // Geospatial Walkability Analytics: OSMnx/NetworkX graph extraction,
+    // GeoPandas spatial dataframes, elevation/terrain-grade enrichment.
+    // Citation & Diffusion Network Analysis: the CERN Knowledge Transfer
+    // citation-spillover project (forward-citation diffusion graphs built
+    // from OpenAlex data).
     skills: [
       'OSMnx / NetworkX',
       'GeoPandas',
@@ -65,11 +67,12 @@ export const skillCategories: SkillCategory[] = [
   {
     category: 'Tools & Practices',
     icon: 'tools',
-    // Git/GitHub across every project repo; Notion API (Flashcards); AI
-    // tooling from DataCamp's "Understanding ChatGPT" plus the longevity
-    // simulator's LLM integration; critical analysis from the Bachelor's
-    // course "An Analytical Approach to Separating Fact from Fiction" (put
-    // into practice catching the spurious correlation in Stock & Culture).
+    // Git/GitHub across every project repo; Notion API (Notion Anki
+    // Flashcard Sync); AI tooling from DataCamp's "Understanding ChatGPT"
+    // plus the longevity simulator's LLM integration; critical analysis
+    // from the Bachelor's course "An Analytical Approach to Separating Fact
+    // from Fiction" (put into practice catching the spurious correlation in
+    // the Fast Food & Gaming Stock Correlation Study).
     skills: ['Git / GitHub', 'Notion API', 'AI-Assisted Research (LLMs)', 'Critical / Statistical Reasoning'],
   },
 ];

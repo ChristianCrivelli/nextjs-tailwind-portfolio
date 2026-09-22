@@ -1,19 +1,6 @@
 import Link from 'next/link';
 import { Project } from '../data/projects';
-
-const statusVars: Record<Project['status'], { ink: string; bg: string }> = {
-  live: { ink: 'var(--status-live-ink)', bg: 'var(--status-live-bg)' },
-  'in-progress': { ink: 'var(--status-progress-ink)', bg: 'var(--status-progress-bg)' },
-  completed: { ink: 'var(--status-completed-ink)', bg: 'var(--status-completed-bg)' },
-  archived: { ink: 'var(--status-archived-ink)', bg: 'var(--status-archived-bg)' },
-};
-
-const statusLabel: Record<Project['status'], string> = {
-  live: 'Live',
-  'in-progress': 'In Progress',
-  completed: 'Completed',
-  archived: 'Archived',
-};
+import { statusVars, statusLabel } from '../lib/project-status';
 
 export function ProjectCard({ project }: { project: Project }) {
   const status = statusVars[project.status];

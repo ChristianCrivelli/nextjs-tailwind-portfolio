@@ -7,7 +7,7 @@ export function getPersonStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Christian Crivelli',
-    jobTitle: 'Business Analytics Student',
+    jobTitle: 'MSc Business Intelligence & Smart Services Student',
     url: baseUrl,
     sameAs: [
       'https://www.linkedin.com/in/christian-crivelli-120391231/',
@@ -22,7 +22,7 @@ export function getPersonStructuredData() {
     // here too.
     knowsAbout: skills,
     description:
-      'Business Analytics student building data-driven projects spanning sports analytics, civic data, demographic research, and recommendation systems.',
+      'Business Analytics graduate and current MSc Business Intelligence & Smart Services student building data-driven projects spanning sports analytics, civic data, demographic research, and recommendation systems.',
   };
 }
 

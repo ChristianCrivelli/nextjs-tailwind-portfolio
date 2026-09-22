@@ -31,7 +31,7 @@ export default function Page() {
               Crivelli
             </h1>
             <p className="mt-2 text-sm font-medium leading-relaxed" style={{ color: 'var(--ink-muted)' }}>
-              Business Analytics Student
+              Business Intelligence &amp; Smart Services Student
               <br />
               Systems Architect
               <br />

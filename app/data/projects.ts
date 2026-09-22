@@ -69,7 +69,10 @@ export const projects: Project[] = [
       'A Python-based research project testing whether population health metrics (obesity prevalence) show a measurable relationship with equity market performance, correlating 45 years of returns (1980–2024) across 65 individual restaurant and fast-food tickers against national obesity trends in six countries plus a global aggregate, using both Pearson and Spearman correlation. The headline numbers are also the trap here: obesity prevalence and the stock index level move almost in lockstep (r = 0.97 globally, up to r = 0.99 in the US) — but that\'s two series trending upward together over 45 years, not evidence either one drives the other. Switching to year-over-year changes — the actual test for a real relationship — collapses the correlation to a statistically insignificant r ≈ 0.13 (p > 0.4). The project deliberately reports both: the impressive-looking level correlation, and the honest year-over-year one that debunks it.',
     tags: ['Statistical Analysis (Pearson/Spearman)', 'Python', 'Critical / Statistical Reasoning', 'Data Analysis'],
     repoUrl: 'https://github.com/ChristianCrivelli/fastfood-gaming-stock-correlation-study',
-    image: '/project-thumb?title=Stock%20%26%20Culture&type=research',
+    // Real chart from the repo (obesity_x_stock/obesity_stock_correlation_level_vs_diff.html):
+    // level correlation vs. the honest year-over-year one, by country — the
+    // project's actual headline finding, not a generated placeholder.
+    image: '/thumbnails/stock-culture.png',
   },
   {
     slug: 'civicus-api',
@@ -108,6 +111,9 @@ export const projects: Project[] = [
       'A citation-diffusion pipeline built for a CERN Knowledge Transfer audience. It fetches CERN KT highlights via the WordPress REST API and builds a directed forward-citation spillover graph via the OpenAlex API, tracking which fields and countries later cite CERN publications — combined with disclosed KT contracts/partners as a second spillover signal. Renders an interactive Pyvis network visualization end-to-end.',
     tags: ['Citation & Diffusion Network Analysis', 'REST API Design', 'Python', 'Network Visualization'],
     repoUrl: 'https://github.com/ChristianCrivelli/knowledge_spillover',
+    // No committed chart output to screenshot (citation_graph.html is a
+    // pipeline run artifact, not checked in) — falls back to the repo page.
+    image: '/thumbnails/knowledge-spillover.png',
   },
   {
     slug: 'city-walkability',
@@ -119,7 +125,9 @@ export const projects: Project[] = [
       'A network-analysis project that models pedestrian nodes across a city to evaluate and compare walkability. Phase 1 is an ETL pipeline — extracting street networks from OpenStreetMap via OSMnx, transforming them with elevation and terrain-grade enrichment from the Open-Elevation API, and loading the result into per-city cached GraphML/GeoPackage/CSV outputs — complete across five study cities (Maastricht, Matosinhos, Sabancı University in Istanbul, Lanaken, and Mindelo), covering roughly 32,000 pedestrian nodes, 87,000 edges, and 5,150 km of mapped network. One real data-quality validation catch along the way: the original pedestrian-edge filter treated an explicit sidewalk=no OpenStreetMap tag as evidence a sidewalk exists, because it checked tag presence rather than value — found and fixed during implementation.',
     tags: ['OSMnx / NetworkX', 'GeoPandas', 'Elevation & Terrain Modeling', 'Python'],
     repoUrl: 'https://github.com/ChristianCrivelli/geospatial-walkability-analytics',
-    image: '/project-thumb?title=City%20Walkability&type=research',
+    // Real output figure from the repo (figures/all_locations_overview.png):
+    // the pedestrian node maps for all five study cities.
+    image: '/thumbnails/city-walkability.png',
   },
   {
     slug: '2vs3',
@@ -132,7 +140,9 @@ export const projects: Project[] = [
       'A mathematical optimization project inspired by the "Moreyball" analytics revolution, which frames shot selection as a multi-objective problem: maximizing expected value while accounting for variance. By treating the court as an asset portfolio, the model calculates the exact break-even frontier where a team cannot increase expected point return without increasing the risk of missing the shot — directly applying Pareto optimization to sports analytics. Zone-level efficiency is trained on 218,701 logged shots from the 2023–24 NBA season; a separate era-comparison view plots the 100 highest-scoring player-seasons since 1979–80 — the first season with a 3-point line, and 47 seasons of box-score data — to show how the risk/reward frontier has drifted as the league has shifted toward 3-point shooting.',
     tags: ['Pareto / Multi-Objective Optimization', 'Statistical Analysis', 'Python', 'Data Analysis'],
     repoUrl: 'https://github.com/ChristianCrivelli/nba-shot-efficiency-pareto-model',
-    image: '/project-thumb?title=2%20vs%203%3A%20NBA%20Shot%20Optimization&type=research',
+    // Real output figure from the repo (outputs/zone_efficiency_full.png):
+    // the Pareto-efficient vs. dominated shot-zone court charts.
+    image: '/thumbnails/2vs3.png',
     featured: true,
   },
   {
@@ -146,7 +156,7 @@ export const projects: Project[] = [
       'A demographic-aging and fiscal-risk simulator built around Gompertz-Makeham mortality curves feeding a national pension and healthcare cost model — chosen over a pure-fiscal or pure-biodemography angle for the hybrid view it gives. The current build walks through a single country (Japan) as a first pass, framed honestly as an illustrative case study rather than a validated cross-country result. A Tableau dashboard and a BRD, framed as a request from a pension-regulator/ministry-of-finance stakeholder, are in progress.',
     tags: ['Demographic / Population Modeling (Gompertz-Makeham)', 'Statistical Analysis', 'Python', 'Fiscal / Policy Simulation'],
     repoUrl: 'https://github.com/ChristianCrivelli/longevity-fiscal-risk-simulator',
-    image: '/project-thumb?title=Macro-to-Micro%20Longevity%20Forecasting&type=research',
+    image: '/project-thumb?title=Silver%20Tsunami%20Simulator&type=research',
     featured: true,
   },
   {
@@ -159,7 +169,8 @@ export const projects: Project[] = [
       'An ETL pipeline that turns vocabulary sitting in a Notion database into Anki flashcards automatically. A GitHub Actions job orchestrates a daily run that extracts new Notion entries and transforms each into a definition through a three-tier fallback chain (Free Dictionary API → Merriam-Webster → Gemini), then queues the result; a local delivery step loads that queue into Anki via AnkiConnect as reversible cards, so one vocabulary entry becomes both a word→definition and a definition→word review card. Anki\'s own duplicate detection acts as the pipeline\'s data-quality validation step, keeping re-runs safe.',
     tags: ['Notion API', 'Scheduled Pipelines (GitHub Actions)', 'REST API Design', 'Python'],
     repoUrl: 'https://github.com/ChristianCrivelli/notion-anki-flashcard-sync',
-    image: '/project-thumb?title=Notion%20Flashcards&type=tool',
+    // No chart to show for a background sync tool — falls back to the repo page.
+    image: '/thumbnails/flashcards.png',
   },
   {
     slug: 'portfolio-site',

@@ -27,7 +27,7 @@ export function JourneyMap() {
         of university in Lanaken, my degree in Maastricht, and an exchange semester in Istanbul.
         They&apos;re also the exact five cities behind my{' '}
         <Link href="/projects/city-walkability" className="underline">
-          City Walkability project
+          Geospatial Walkability Analytics project
         </Link>
         {' '}— studying their pedestrian networks was my way of taking a closer look at places
         that shaped me. I&apos;d love to keep adding more pins to this map as life adds more

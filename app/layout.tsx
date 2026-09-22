@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: '%s | Christian Crivelli',
   },
   description:
-    'Business Analytics graduate and incoming BI & Smart Services MSc student building data-for-good projects in sports, civic data, and demographics.',
+    'Business Analytics graduate and current BI & Smart Services MSc student building data-for-good projects in sports, civic data, and demographics.',
   openGraph: {
     title: 'Christian Crivelli — Business Analytics & Data Science',
     description:
-      'Business Analytics graduate and incoming MSc student in Business Intelligence & Smart Services, building data-driven projects in sports analytics, civic data, and demographic research.',
+      'Business Analytics graduate and current MSc student in Business Intelligence & Smart Services, building data-driven projects in sports analytics, civic data, and demographic research.',
     url: baseUrl,
     siteName: 'Christian Crivelli',
     locale: 'en_US',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Christian Crivelli — Business Analytics & Data Science',
     description:
-      'Business Analytics graduate and incoming MSc student in Business Intelligence & Smart Services, building data-driven projects in sports analytics, civic data, and demographic research.',
+      'Business Analytics graduate and current MSc student in Business Intelligence & Smart Services, building data-driven projects in sports analytics, civic data, and demographic research.',
     images: ['/og'],
   },
   robots: {
