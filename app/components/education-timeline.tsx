@@ -21,7 +21,7 @@ export function EducationTimeline() {
             </div>
             <p className="text-sm" style={{ color: 'var(--ink-muted)' }}>{entry.degree}</p>
             {entry.status === 'in-progress' && (
-              <span className="mt-1 inline-block rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-800 dark:bg-amber-950/50 dark:text-amber-300">
+              <span className="mt-1 inline-block rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-800">
                 In Progress
               </span>
             )}

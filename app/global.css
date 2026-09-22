@@ -1,10 +1,5 @@
 @import 'tailwindcss';
 
-/* Manual dark mode: toggled via a `.dark` class on <html>, set by
-   ThemeToggle (see app/components/theme-toggle.tsx). Site defaults to
-   light regardless of system preference — see issue #26. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 ::selection {
   background-color: var(--accent);
   color: #fefefe;
@@ -21,7 +16,8 @@
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
 
-  /* Design system tokens — see issue #23 (light values) */
+  /* Design system tokens — see issue #23. Single (light) theme only —
+     the dark variant was removed along with the theme toggle. */
   --accent: #2dd4a7;
   --bg: #fafaf8;
   --surface: #ffffff;
@@ -44,38 +40,6 @@
   --status-completed-bg: color-mix(in srgb, var(--accent) 16%, white);
   --status-archived-ink: #6b7075;
   --status-archived-bg: rgba(0, 0, 0, 0.05);
-}
-
-:root.dark {
-  --sh-class: #4c97f8;
-  --sh-identifier: white;
-  --sh-keyword: #f47067;
-  --sh-string: #0fa295;
-
-  /* Design system tokens (dark values) */
-  --bg: #0e1013;
-  --surface: #15171b;
-  --ink: #eef1f3;
-  --ink-muted: #9aa4ab;
-  --ink-faint: #7d868c;
-  --border-soft: rgba(255, 255, 255, 0.07);
-  --glow-strong: color-mix(in srgb, var(--accent) 30%, transparent);
-  --glow-soft: color-mix(in srgb, var(--accent) 14%, transparent);
-  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 28px rgba(0, 0, 0, 0.35);
-  --card-shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 18px 36px rgba(0, 0, 0, 0.45);
-  --logo-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 8px 24px color-mix(in srgb, var(--accent) 45%, transparent);
-  --grain-opacity: 0.05;
-
-  --status-live-ink: #38bdf8;
-  --status-live-bg: rgba(56, 189, 248, 0.14);
-  --status-progress-ink: #e0b64a;
-  --status-progress-bg: rgba(224, 182, 74, 0.14);
-  --status-completed-ink: var(--accent);
-  --status-completed-bg: color-mix(in srgb, var(--accent) 16%, transparent);
-  --status-archived-ink: #9aa4ab;
-  --status-archived-bg: rgba(255, 255, 255, 0.06);
-
-  color-scheme: dark;
 }
 
 @keyframes rise-in {
@@ -222,28 +186,6 @@ body {
   background-color: var(--bg);
 }
 
-/* Cross-fade the palette itself when the theme toggle flips. Applied
-   broadly (not just to body) so every card, badge, and border animates
-   together instead of a few spots fading while everything else around
-   them snaps instantly — see issue #30. Excludes `transform` so it
-   doesn't fight hover/press animations or Leaflet's own pan/zoom
-   transitions on the journey map. */
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color, box-shadow, fill, stroke;
-  transition-duration: 0.25s;
-  transition-timing-function: ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none;
-  }
-}
-
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -322,11 +264,11 @@ body {
 }
 
 .prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  @apply underline transition-all decoration-neutral-400 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-neutral-300;
   content: '#';
 }
 
@@ -335,7 +277,7 @@ body {
 }
 
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-neutral-50 rounded-lg overflow-x-auto border border-neutral-200 py-2 px-3 text-sm;
 }
 
 .prose code {
@@ -358,7 +300,7 @@ body {
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  @apply my-4 text-neutral-800;
 }
 
 .prose h1 {
@@ -423,63 +365,7 @@ table {
   text-wrap: balance;
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  /* Fixed width so swapping "Dark"/"Light" doesn't snap the button's size —
-     that instant resize is what made the fade read as clanky (see issue
-     #30 follow-up). Sized to fit the wider "☀️ Light" state with a little
-     headroom for font differences. */
-  width: 92px;
-  border: 1px solid var(--border-soft);
-  border-radius: 9999px;
-  padding: 6px 12px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--ink-muted);
-  background: var(--surface);
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.theme-toggle:hover {
-  color: var(--ink);
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-}
-
-.theme-toggle:active {
-  transform: scale(0.96);
-}
-
-/* Icon and label fade in on their own each time the toggle flips (the
-   component remounts them via `key`), instead of instantly popping to the
-   new emoji/text — see theme-toggle.tsx. */
-@keyframes theme-toggle-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.theme-toggle-fade {
-  animation: theme-toggle-fade-in 0.2s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .theme-toggle {
-    transition: none;
-  }
-  .theme-toggle-fade {
-    animation: none;
-  }
-}
-
-/* Shared pill-button look (submit buttons, CTAs) — same visual language as
-   .theme-toggle without reusing that class name for unrelated buttons. */
+/* Shared pill-button look (submit buttons, CTAs). */
 .btn-pill {
   display: inline-flex;
   align-items: center;
