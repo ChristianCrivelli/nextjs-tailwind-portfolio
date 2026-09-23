@@ -155,7 +155,10 @@ export const projects: Project[] = [
     description:
       'A demographic-aging and fiscal-risk simulator built around Gompertz-Makeham mortality curves feeding a national pension and healthcare cost model — chosen over a pure-fiscal or pure-biodemography angle for the hybrid view it gives. The current build walks through a single country (Japan) as a first pass, framed honestly as an illustrative case study rather than a validated cross-country result. A Tableau dashboard and a BRD, framed as a request from a pension-regulator/ministry-of-finance stakeholder, are in progress.',
     tags: ['Demographic / Population Modeling (Gompertz-Makeham)', 'Statistical Analysis', 'Python', 'Fiscal / Policy Simulation'],
-    repoUrl: 'https://github.com/ChristianCrivelli/longevity-fiscal-risk-simulator',
+    // The full build (per-country Gompertz-Makeham fits, sex-specific demography,
+    // real age-band/health-baseline calibration, three notebooks, a test suite)
+    // lives here — longevity-fiscal-risk-simulator was an earlier, near-empty stub.
+    repoUrl: 'https://github.com/ChristianCrivelli/civic-freedom-development-analysis',
     image: '/project-thumb?title=Silver%20Tsunami%20Simulator&type=research',
     featured: true,
   },
@@ -171,6 +174,32 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/ChristianCrivelli/notion-anki-flashcard-sync',
     // No chart to show for a background sync tool — falls back to the repo page.
     image: '/thumbnails/flashcards.png',
+  },
+  {
+    slug: 'lofi-sync',
+    title: 'Spotify → YouTube Lofi Playlist Sync',
+    type: 'tool',
+    status: 'completed',
+    oneLiner: 'Turns any public Spotify playlist into an auto-matched YouTube playlist of lofi covers.',
+    description:
+      'A Python tool that pulls every track from one or more public Spotify playlists, searches YouTube for a matching lofi/chillhop version of each, and assembles the results into a single YouTube playlist — resumable and quota-aware throughout, since YouTube caps free API usage at 10,000 units/day (a search costs 100, an add costs 50). Matching is scored rather than guessed: candidates are ranked by whether the title/channel actually signals "lofi" or "chillhop" and whether they mention the original title and artist, with view count as a light tiebreaker, so a song with no confident match is left out rather than mismatched. An audit / audit --fix mode re-checks already-added videos whenever the matching rules get tightened, and an automatic-retry system reconsiders any unmatched song again after 7 days rather than repeating a wasted search — both built to run unattended on a schedule via GitHub Actions.',
+    tags: ['REST API Design', 'Scheduled Pipelines (GitHub Actions)', 'Python'],
+    repoUrl: 'https://github.com/ChristianCrivelli/spotify-youtube-lofi-sync',
+    // No chart to show for a background sync tool — falls back to the repo page.
+    image: '/thumbnails/lofi-sync.png',
+  },
+  {
+    slug: 'yt-summarizer',
+    title: 'YouTube → Readwise Article Pipeline',
+    type: 'tool',
+    status: 'completed',
+    oneLiner: 'Expands YouTube video transcripts into full long-form articles and pushes them straight to Readwise Reader.',
+    description:
+      'An automation pipeline that pulls the caption transcript from each video in a YouTube playlist, expands it into a polished, long-form article via the Gemini API using an outline-first prompt (to avoid the "middle-of-the-text" compression a single-pass summarization prompt produces on long videos), and pushes the result to Readwise Reader through their API — removing the video from the source playlist once it\'s safely saved, so nothing is processed twice. Runs automatically every hour via a GitHub Actions cron job, with credentials cached as repo secrets and a local OAuth token reused across runs rather than re-authenticating each time. A video with no usable transcript (disabled captions, none available) is skipped rather than processed with empty content.',
+    tags: ['AI-Assisted Research (LLMs)', 'REST API Design', 'Scheduled Pipelines (GitHub Actions)', 'Python'],
+    repoUrl: 'https://github.com/ChristianCrivelli/yt_video_summarizer',
+    // No chart to show for a background pipeline — falls back to the repo page.
+    image: '/thumbnails/yt-summarizer.png',
   },
   {
     slug: 'portfolio-site',
