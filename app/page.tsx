@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { projects } from './data/projects';
 import { ProjectCard } from './components/project-card';
 import { EducationTimeline } from './components/education-timeline';
+import { CertificationsList } from './components/certifications-list';
 import { GithubActivity } from './components/github-activity';
 import { ExperienceTimeline } from './components/experience-timeline';
 import { LeadershipTimeline } from './components/leadership-timeline';
@@ -86,6 +87,9 @@ export default function Page() {
 
       {/* Education */}
       <EducationTimeline />
+
+      {/* Certifications */}
+      <CertificationsList />
 
       {/* Skills */}
       <SkillsList />

@@ -14,7 +14,8 @@ export const skillCategories: SkillCategory[] = [
     category: 'Languages & Querying',
     icon: 'code',
     // Python, R, SQL: Bachelor's coursework + DataCamp (Introduction to R,
-    // Python Developer track). TypeScript: this site.
+    // Intermediate R, Python Developer track — see app/data/certifications.ts).
+    // TypeScript: this site.
     skills: ['Python', 'R', 'SQL', 'TypeScript'],
   },
   {
