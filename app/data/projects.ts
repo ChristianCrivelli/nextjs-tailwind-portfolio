@@ -38,7 +38,10 @@ export const projects: Project[] = [
       'Investigates how logistics companies can cut delivery-fleet carbon emissions without missing service deadlines, using real GPS trip data and a physics-based driving simulation. Finds an eco-driving "sweet spot" that cuts emissions by up to 16.5% on congested urban routes while still meeting delivery-time commitments.',
     tags: ['Pareto / Multi-Objective Optimization', 'Machine Learning (Random Forest)', 'Python', 'Statistical Data Analysis', 'Simulation Modeling'],
     pdfPath: '/Christian%20Crivelli%20Thesis.pdf',
-    image: '/project-thumb?title=Finding%20the%20Balance%20Between%20Efficiency%20and%20Green&type=thesis',
+    // Real figure from the thesis itself (Appendix C.1, Figure 3): the
+    // Pareto-efficiency frontiers (Time vs. CO2) for 5 sample trips — the
+    // paper's actual headline result, not a generated placeholder.
+    image: '/thumbnails/thesis.png',
     featured: true,
   },
   {
@@ -63,7 +66,7 @@ export const projects: Project[] = [
     slug: 'stock-culture',
     title: 'Fast Food & Gaming Stock Correlation Study',
     type: 'research',
-    status: 'in-progress',
+    status: 'completed',
     oneLiner: 'An analysis of how public health and cultural indicators relate to stock performance — and a case study in catching a spurious correlation.',
     description:
       'A Python-based research project testing whether population health metrics (obesity prevalence) show a measurable relationship with equity market performance, correlating 45 years of returns (1980–2024) across 65 individual restaurant and fast-food tickers against national obesity trends in six countries plus a global aggregate, using both Pearson and Spearman correlation. The headline numbers are also the trap here: obesity prevalence and the stock index level move almost in lockstep (r = 0.97 globally, up to r = 0.99 in the US) — but that\'s two series trending upward together over 45 years, not evidence either one drives the other. Switching to year-over-year changes — the actual test for a real relationship — collapses the correlation to a statistically insignificant r ≈ 0.13 (p > 0.4). The project deliberately reports both: the impressive-looking level correlation, and the honest year-over-year one that debunks it.',
@@ -79,13 +82,13 @@ export const projects: Project[] = [
     title: 'Civic Data API',
     type: 'api',
     status: 'in-progress',
-    oneLiner: 'An orchestrated ETL pipeline packaging civic-space ratings for 197 countries into a free, versioned JSON API.',
+    oneLiner: 'An orchestrated ETL pipeline packaging civic-space ratings for 190 countries into a free, versioned JSON API.',
     description:
-      'An ETL pipeline — extracting CIVICUS Monitor\'s civic-space ratings, transforming them into normalized per-country records, and loading them as static JSON — orchestrated by a scheduled GitHub Actions workflow that runs monthly, with zero servers, zero database, and zero API keys; output is served straight off GitHub\'s raw-content CDN (mirrored on jsDelivr for edge caching). Data-quality validation runs at two points: every output record validates against a published JSON Schema, and the pipeline itself runs through CI (black, ruff, pytest) on every change. The source repo is private while a couple of data-source permissions are finalized, but the live endpoints — a global snapshot, per-country records, and an append-only change history — are already public and queryable today.',
+      'An ETL pipeline — extracting CIVICUS Monitor\'s civic-space ratings, transforming them into normalized per-country records, and loading them as static JSON — orchestrated by a scheduled GitHub Actions workflow that runs monthly, with zero servers, zero database, and zero API keys; output is designed to be served straight off GitHub\'s raw-content CDN (mirrored on jsDelivr for edge caching) once public. Data-quality validation runs at two points: every output record validates against a published JSON Schema, and the pipeline itself runs through CI (black, ruff, pytest) on every change. The pipeline is live and running on schedule today — a global snapshot, per-country records, and an append-only change history are all being generated on every run — but the source repo is private while a couple of data-source permissions are finalized, so the endpoints themselves aren\'t reachable from outside the repo yet. Code and docs are ready to go public the moment that clears.',
     tags: ['Scheduled Pipelines (GitHub Actions)', 'REST API Design', 'Python', 'CI/CD'],
     image: '/project-thumb?title=Civic%20Data%20API&type=api',
-    // no repoUrl / liveUrl on purpose — source is private while access is
-    // finalized, even though the JSON endpoints themselves are public
+    // no repoUrl / liveUrl on purpose — source (and its JSON endpoints) stay
+    // private until data-source permissions are finalized; see issue #31
   },
   {
     slug: 'demographic-studies',
@@ -105,7 +108,7 @@ export const projects: Project[] = [
     slug: 'knowledge-spillover',
     title: 'CERN Knowledge Transfer Spillover Graph',
     type: 'research',
-    status: 'in-progress',
+    status: 'completed',
     oneLiner: 'Maps how CERN research diffuses outward through forward citations and disclosed knowledge-transfer deals.',
     description:
       'A citation-diffusion pipeline built for a CERN Knowledge Transfer audience. It fetches CERN KT highlights via the WordPress REST API and builds a directed forward-citation spillover graph via the OpenAlex API, tracking which fields and countries later cite CERN publications — combined with disclosed KT contracts/partners as a second spillover signal. Renders an interactive Pyvis network visualization end-to-end.',
@@ -133,7 +136,7 @@ export const projects: Project[] = [
     slug: '2vs3',
     title: 'NBA Shot Efficiency Pareto Model',
     type: 'research',
-    status: 'in-progress',
+    status: 'completed',
     oneLiner:
       'Treats the basketball court as a portfolio to find the optimal risk/reward frontier for shot selection.',
     description:
@@ -155,7 +158,11 @@ export const projects: Project[] = [
     description:
       'A demographic-aging and fiscal-risk simulator built around Gompertz-Makeham mortality curves feeding a national pension and healthcare cost model — chosen over a pure-fiscal or pure-biodemography angle for the hybrid view it gives. The current build walks through a single country (Japan) as a first pass, framed honestly as an illustrative case study rather than a validated cross-country result. A Tableau dashboard and a BRD, framed as a request from a pension-regulator/ministry-of-finance stakeholder, are in progress.',
     tags: ['Demographic / Population Modeling (Gompertz-Makeham)', 'Statistical Analysis', 'Python', 'Fiscal / Policy Simulation'],
-    repoUrl: 'https://github.com/ChristianCrivelli/longevity-fiscal-risk-simulator',
+    // The full build (per-country Gompertz-Makeham fits, sex-specific
+    // demography, real age-band/health-baseline calibration, three
+    // notebooks, a test suite) lives here — longevity-fiscal-risk-simulator
+    // was an earlier, near-empty stub.
+    repoUrl: 'https://github.com/ChristianCrivelli/civic-freedom-development-analysis',
     image: '/project-thumb?title=Silver%20Tsunami%20Simulator&type=research',
     featured: true,
   },
@@ -171,6 +178,30 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/ChristianCrivelli/notion-anki-flashcard-sync',
     // No chart to show for a background sync tool — falls back to the repo page.
     image: '/thumbnails/flashcards.png',
+  },
+  {
+    slug: 'lofi-sync',
+    title: 'Spotify → YouTube Lofi Playlist Sync',
+    type: 'tool',
+    status: 'completed',
+    oneLiner: 'Turns any public Spotify playlist into an auto-matched YouTube playlist of lofi covers.',
+    description:
+      'A Python tool that pulls every track from one or more public Spotify playlists, searches YouTube for a matching lofi/chillhop version of each, and assembles the results into a single YouTube playlist — resumable and quota-aware throughout, since YouTube caps free API usage at 10,000 units/day (a search costs 100, an add costs 50). Matching is scored rather than guessed: candidates are ranked by whether the title/channel actually signals "lofi" or "chillhop" and whether they mention the original title and artist, with view count as a light tiebreaker, so a song with no confident match is left out rather than mismatched. An audit / audit --fix mode re-checks already-added videos whenever the matching rules get tightened, and an automatic-retry system reconsiders any unmatched song again after 7 days rather than repeating a wasted search — both built to run unattended on a schedule via GitHub Actions.',
+    tags: ['REST API Design', 'Scheduled Pipelines (GitHub Actions)', 'Python'],
+    repoUrl: 'https://github.com/ChristianCrivelli/spotify-youtube-lofi-sync',
+    image: '/thumbnails/lofi-sync.png',
+  },
+  {
+    slug: 'yt-summarizer',
+    title: 'YouTube → Readwise Article Pipeline',
+    type: 'tool',
+    status: 'completed',
+    oneLiner: 'Expands YouTube video transcripts into full long-form articles and pushes them straight to Readwise Reader.',
+    description:
+      'An automation pipeline that pulls the caption transcript from each video in a YouTube playlist, expands it into a polished, long-form article via the Gemini API using an outline-first prompt (to avoid the "middle-of-the-text" compression a single-pass summarization prompt produces on long videos), and pushes the result to Readwise Reader through their API — removing the video from the source playlist once it\'s safely saved, so nothing is processed twice. Runs automatically every hour via a GitHub Actions cron job, with credentials cached as repo secrets and a local OAuth token reused across runs rather than re-authenticating each time. A video with no usable transcript (disabled captions, none available) is skipped rather than processed with empty content.',
+    tags: ['AI-Assisted Research (LLMs)', 'REST API Design', 'Scheduled Pipelines (GitHub Actions)', 'Python'],
+    repoUrl: 'https://github.com/ChristianCrivelli/yt_video_summarizer',
+    image: '/thumbnails/yt-summarizer.png',
   },
   {
     slug: 'portfolio-site',

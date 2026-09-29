@@ -34,8 +34,6 @@ export default function Page() {
             <p className="mt-2 text-sm font-medium leading-relaxed" style={{ color: 'var(--ink-muted)' }}>
               Business Intelligence &amp; Smart Services Student
               <br />
-              Systems Architect
-              <br />
               Data for Good
             </p>
             <span

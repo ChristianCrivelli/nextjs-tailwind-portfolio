@@ -9,7 +9,12 @@ function formatRange(start: string, end?: string) {
 export function ExperienceTimeline() {
   return (
     <section>
-      <h2 className="mb-6 text-xl font-medium">Experience</h2>
+      <h2 className="mb-2 text-xl font-medium">Experience</h2>
+      <p className="mb-6 text-sm" style={{ color: 'var(--ink-muted)' }}>
+        Service work that&apos;s funded my studies alongside the projects below — staying accurate
+        and composed through a packed, fast-moving shift is the same discipline I bring to
+        shipping a data pipeline on a deadline.
+      </p>
       <div className="space-y-8">
         {experience.map((entry, i) => (
           <div key={i} className="timeline-item pl-4">
