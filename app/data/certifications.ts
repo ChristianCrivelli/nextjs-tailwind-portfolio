@@ -13,6 +13,14 @@ export interface Certification {
 // to R + Intermediate R together are the real basis for the "R" skill claim.
 export const certifications: Certification[] = [
   {
+    title: 'Introduction to the Tidyverse',
+    issuer: 'DataCamp',
+    completedDate: '2026-10',
+    length: '4 hrs',
+    credentialId: '49,920,524',
+    pdfPath: '/certifications/introduction-to-the-tidyverse.pdf',
+  },
+  {
     title: 'Intermediate R',
     issuer: 'DataCamp',
     completedDate: '2026-09',
