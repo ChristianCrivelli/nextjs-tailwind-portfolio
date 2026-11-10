@@ -405,3 +405,52 @@ table {
 .form-field:focus-visible {
   border-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
+
+/* Journey map — see app/components/journey-map.tsx. Frame matches
+   .project-card's rounded-corner/soft-shadow look; the rest recolors
+   Leaflet's default marker and popup chrome to use the site's own design
+   tokens instead of Leaflet's stock blue pin and square white popup. */
+.journey-map-frame {
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--card-shadow);
+}
+
+.journey-marker-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #fefefe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 3px var(--surface), 0 6px 14px rgba(20, 20, 25, 0.18);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  background: var(--surface);
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px;
+  font-size: 0.8125rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.leaflet-popup-tip {
+  background: var(--surface);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--ink-muted);
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: var(--ink);
+}
